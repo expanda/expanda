@@ -9,6 +9,7 @@ my $graph = gv::graph("sample");
 my $node1 = gv::node($graph, "node1");
 my $node2 = gv::node($graph, "node2");
 my $edge  = gv::edge($node1, $node2);
+
 for (3..100) {
 	my $tmpn = gv::node( $graph, "node$_" );
 	gv::setv($tmpn,'label', 'node'.$_);
@@ -19,6 +20,10 @@ for (3..100) {
 gv::layout($graph, "dot");
 gv::render($graph);
 
+my $pos = gv::findattr($node1, 'pos');
+print "Value: ".gv::getv($node1, $pos)."\n";
+exit;
+
 my $n = undef;
 
 while ( 1 ) {
@@ -27,7 +32,7 @@ while ( 1 ) {
   my $a = undef;
   while ( 1 ) {
     $a = ( defined $a ) ? gv::nextattr($n, $a) : gv::firstattr($n);
-    print "AttrName: ".gv::nameof($a)."\t" if gv::nameof($a);
+    print  "AttrName: ".gv::nameof($a)."\t" if gv::nameof($a);
     print "Value: ".gv::getv($n, $a)."\n";
     last unless gv::ok($a);
   }

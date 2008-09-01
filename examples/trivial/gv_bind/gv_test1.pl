@@ -33,7 +33,7 @@ for (3..100) {
 }
 
 gv::layout($graph_handle, 'dot');
-gv::render($graph_handle, 'png', 'test.png');
+gv::render($graph_handle);
 
 
 my $proto = gv::protonode($graph_handle);
