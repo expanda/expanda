@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:bp="http://www.biopax.org/release/biopax-level2.owl#"
+    xmlns="http://www.biopax.org/examples/proteomics-interaction#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xml:base="http://www.biopax.org/examples/proteomics-interaction">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.biopax.org/release/biopax-level2.owl"/>
+  </owl:Ontology>
+  <bp:relationshipXref rdf:ID="relationshipXref1">
+    <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F:transcription factor activit</bp:COMMENT>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GO</bp:DB>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GO:0003700</bp:ID>
+    <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GO molecular function</bp:RELATIONSHIP-TYPE>
+  </bp:relationshipXref>
+  <bp:relationshipXref rdf:ID="relationshipXref7">
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IPR001876</bp:ID>
+    <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE motif</bp:RELATIONSHIP-TYPE>
+    <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Znf_RanGDP</bp:COMMENT>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE</bp:DB>
+  </bp:relationshipXref>
+  <bp:unificationXref rdf:ID="unificationXref8">
+    <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >45</bp:ID-VERSION>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Q00987</bp:ID>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UNIPROT</bp:DB>
+  </bp:unificationXref>
+  <bp:unificationXref rdf:ID="unificationXref17">
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Q9UMT8</bp:ID>
+    <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >45</bp:ID-VERSION>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UNIPROT</bp:DB>
+  </bp:unificationXref>
+  <bp:relationshipXref rdf:ID="relationshipXref10">
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE</bp:DB>
+    <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >P53_like_DNA_bnd</bp:COMMENT>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IPR008967</bp:ID>
+    <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE motif</bp:RELATIONSHIP-TYPE>
+  </bp:relationshipXref>
+  <bp:relationshipXref rdf:ID="relationshipXref3">
+    <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >P:negative regulation of cell </bp:COMMENT>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GO</bp:DB>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GO:0008285</bp:ID>
+    <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GO biological process</bp:RELATIONSHIP-TYPE>
+  </bp:relationshipXref>
+  <bp:relationshipXref rdf:ID="relationshipXref11">
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE</bp:DB>
+    <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MDM2</bp:COMMENT>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IPR010984</bp:ID>
+    <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE motif</bp:RELATIONSHIP-TYPE>
+  </bp:relationshipXref>
+  <bp:relationshipXref rdf:ID="relationshipXref12">
+    <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >p53_tetrameristn</bp:COMMENT>
+    <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE motif</bp:RELATIONSHIP-TYPE>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IPR010991</bp:ID>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE</bp:DB>
+  </bp:relationshipXref>
+  <bp:unificationXref rdf:ID="unificationXref13">
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Q13300</bp:ID>
+    <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >45</bp:ID-VERSION>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UNIPROT</bp:DB>
+  </bp:unificationXref>
+  <bp:unificationXref rdf:ID="unificationXref7">
+    <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >45</bp:ID-VERSION>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UNIPROT</bp:DB>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O15351</bp:ID>
+  </bp:unificationXref>
+  <bp:unificationXref rdf:ID="unificationXref16">
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Q9UGI3</bp:ID>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UNIPROT</bp:DB>
+    <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >45</bp:ID-VERSION>
+  </bp:unificationXref>
+  <bp:evidence rdf:ID="evidence1">
+    <bp:XREF>
+      <bp:publicationXref rdf:ID="publicationXref2">
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >pubmed</bp:DB>
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >11223036</bp:ID>
+      </bp:publicationXref>
+    </bp:XREF>
+    <bp:EVIDENCE-CODE>
+      <bp:openControlledVocabulary rdf:ID="openControlledVocabulary2">
+        <bp:TERM rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >coimmunoprecipitation</bp:TERM>
+        <bp:XREF>
+          <bp:unificationXref rdf:ID="unificationXref2">
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >MI:0019</bp:ID>
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >PSI-MI</bp:DB>
+          </bp:unificationXref>
+        </bp:XREF>
+      </bp:openControlledVocabulary>
+    </bp:EVIDENCE-CODE>
+    <bp:CONFIDENCE>
+      <bp:confidence rdf:ID="confidence1">
+        <bp:CONFIDENCE-VALUE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >5</bp:CONFIDENCE-VALUE>
+        <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >From MINT: confidence level: Each level respect the conditions of inferior levels.     1. all interactions    2. interactions verified by at least two experiments    3. interactions described in a least two papers    4. as in level 3 but one of the experiment is co-ip    5. as in level 3 but one of the experiments is co-ip at endogenous levels</bp:COMMENT>
+        <bp:XREF>
+          <bp:publicationXref rdf:ID="publicationXref4">
+            <bp:URL rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://mint.bio.uniroma2.it/mint</bp:URL>
+          </bp:publicationXref>
+        </bp:XREF>
+      </bp:confidence>
+    </bp:CONFIDENCE>
+  </bp:evidence>
+  <bp:bioSource rdf:ID="bioSource1">
+    <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Homo sapiens</bp:NAME>
+    <bp:TAXON-XREF>
+      <bp:unificationXref rdf:ID="unificationXref5">
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >taxon</bp:DB>
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >9606</bp:ID>
+      </bp:unificationXref>
+    </bp:TAXON-XREF>
+  </bp:bioSource>
+  <bp:relationshipXref rdf:ID="relationshipXref6">
+    <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Znf_ring</bp:COMMENT>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE</bp:DB>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IPR001841</bp:ID>
+    <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PROSITE motif</bp:RELATIONSHIP-TYPE>
+  </bp:relationshipXref>
+  <bp:unificationXref rdf:ID="unificationXref9">
+    <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >45</bp:ID-VERSION>
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UNIPROT</bp:DB>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Q13226</bp:ID>
+  </bp:unificationXref>
+  <bp:unificationXref rdf:ID="unificationXref11">
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UNIPROT</bp:DB>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Q13298</bp:ID>
+    <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >45</bp:ID-VERSION>
+  </bp:unificationXref>
+  <bp:protein rdf:ID="protein1">
+    <bp:XREF>
+      <bp:relationshipXref rdf:ID="relationshipXref9">
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >PROSITE</bp:DB>
+        <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >PROSITE motif</bp:RELATIONSHIP-TYPE>
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >IPR003121</bp:ID>
+        <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SWIB</bp:COMMENT>
+      </bp:relationshipXref>
+    </bp:XREF>
+    <bp:XREF>
+      <bp:unificationXref rdf:ID="unificationXref10">
+        <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >45</bp:ID-VERSION>
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >UNIPROT</bp:DB>
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Q13297</bp:ID>
+      </bp:unificationXref>
+    </bp:XREF>
+    <bp:XREF rdf:resource="#relationshipXref7"/>
+    <bp:XREF rdf:resource="#unificationXref17"/>
+    <bp:XREF rdf:resource="#unificationXref13"/>
+    <bp:XREF rdf:resource="#relationshipXref3"/>
+    <bp:XREF rdf:resource="#relationshipXref6"/>
+    <bp:ORGANISM rdf:resource="#bioSource1"/>
+    <bp:XREF rdf:resource="#unificationXref16"/>
+    <bp:XREF rdf:resource="#unificationXref8"/>
+    <bp:SHORT-NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mdm2</bp:SHORT-NAME>
+    <bp:XREF>
+      <bp:unificationXref rdf:ID="unificationXref12">
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >UNIPROT</bp:DB>
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Q13299</bp:ID>
+        <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >45</bp:ID-VERSION>
+      </bp:unificationXref>
+    </bp:XREF>
+    <bp:XREF>
+      <bp:unificationXref rdf:ID="unificationXref14">
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Q13301</bp:ID>
+        <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >45</bp:ID-VERSION>
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >UNIPROT</bp:DB>
+      </bp:unificationXref>
+    </bp:XREF>
+    <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ubiquitin-protein ligase E3 Mdm2</bp:NAME>
+    <bp:XREF rdf:resource="#unificationXref11"/>
+    <bp:XREF rdf:resource="#relationshipXref11"/>
+    <bp:XREF rdf:resource="#unificationXref9"/>
+  </bp:protein>
+  <bp:sequenceSite rdf:ID="sequenceSite2">
+    <bp:POSITION-STATUS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EQUAL</bp:POSITION-STATUS>
+    <bp:SEQUENCE-POSITION rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >1</bp:SEQUENCE-POSITION>
+  </bp:sequenceSite>
+  <bp:openControlledVocabulary rdf:ID="openControlledVocabulary1">
+    <bp:TERM rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >binding site</bp:TERM>
+    <bp:XREF>
+      <bp:unificationXref rdf:ID="unificationXref3">
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >psi-mi</bp:DB>
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MI:0117</bp:ID>
+      </bp:unificationXref>
+    </bp:XREF>
+  </bp:openControlledVocabulary>
+  <bp:sequenceSite rdf:ID="sequenceSite1">
+    <bp:SEQUENCE-POSITION rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >250</bp:SEQUENCE-POSITION>
+    <bp:POSITION-STATUS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EQUAL</bp:POSITION-STATUS>
+  </bp:sequenceSite>
+  <bp:sequenceParticipant rdf:ID="sequenceParticipant1">
+    <bp:PHYSICAL-ENTITY>
+      <bp:protein rdf:ID="protein2">
+        <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tumor protein p73</bp:NAME>
+        <bp:XREF>
+          <bp:relationshipXref rdf:ID="relationshipXref2">
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >GO</bp:DB>
+            <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >GO biological process</bp:RELATIONSHIP-TYPE>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >GO:0006298</bp:ID>
+            <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >P:mismatch repair</bp:COMMENT>
+          </bp:relationshipXref>
+        </bp:XREF>
+        <bp:XREF>
+          <bp:unificationXref rdf:ID="unificationXref6">
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >O15350</bp:ID>
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >UNIPROT</bp:DB>
+          </bp:unificationXref>
+        </bp:XREF>
+        <bp:XREF rdf:resource="#relationshipXref1"/>
+        <bp:XREF>
+          <bp:relationshipXref rdf:ID="relationshipXref4">
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >GO</bp:DB>
+            <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >P:DNA damage response, signal </bp:COMMENT>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >GO:0008630</bp:ID>
+            <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >GO biological process</bp:RELATIONSHIP-TYPE>
+          </bp:relationshipXref>
+        </bp:XREF>
+        <bp:XREF>
+          <bp:unificationXref rdf:ID="unificationXref15">
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >UNIPROT</bp:DB>
+            <bp:ID-VERSION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >45</bp:ID-VERSION>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Q9NTK8</bp:ID>
+          </bp:unificationXref>
+        </bp:XREF>
+        <bp:XREF rdf:resource="#relationshipXref10"/>
+        <bp:XREF rdf:resource="#relationshipXref12"/>
+        <bp:SHORT-NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >p73</bp:SHORT-NAME>
+        <bp:XREF>
+          <bp:relationshipXref rdf:ID="relationshipXref5">
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >IPR001660</bp:ID>
+            <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >SAM</bp:COMMENT>
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >PROSITE</bp:DB>
+            <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >PROSITE motif</bp:RELATIONSHIP-TYPE>
+          </bp:relationshipXref>
+        </bp:XREF>
+        <bp:XREF>
+          <bp:relationshipXref rdf:ID="relationshipXref8">
+            <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >PROSITE motif</bp:RELATIONSHIP-TYPE>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >IPR002117</bp:ID>
+            <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >P53</bp:COMMENT>
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >PROSITE</bp:DB>
+          </bp:relationshipXref>
+        </bp:XREF>
+        <bp:XREF rdf:resource="#unificationXref7"/>
+        <bp:ORGANISM>
+          <bp:bioSource rdf:ID="bioSource2">
+            <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Homo sapiens</bp:NAME>
+            <bp:TAXON-XREF>
+              <bp:unificationXref rdf:ID="unificationXref4">
+                <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >taxon</bp:DB>
+                <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >9606</bp:ID>
+              </bp:unificationXref>
+            </bp:TAXON-XREF>
+          </bp:bioSource>
+        </bp:ORGANISM>
+      </bp:protein>
+    </bp:PHYSICAL-ENTITY>
+    <bp:SEQUENCE-FEATURE-LIST>
+      <bp:sequenceFeature rdf:ID="sequenceFeature1">
+        <bp:SHORT-NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >N-TERM</bp:SHORT-NAME>
+        <bp:FEATURE-LOCATION>
+          <bp:sequenceInterval rdf:ID="sequenceInterval1">
+            <bp:SEQUENCE-INTERVAL-BEGIN rdf:resource="#sequenceSite2"/>
+            <bp:SEQUENCE-INTERVAL-END rdf:resource="#sequenceSite1"/>
+          </bp:sequenceInterval>
+        </bp:FEATURE-LOCATION>
+        <bp:FEATURE-TYPE rdf:resource="#openControlledVocabulary1"/>
+      </bp:sequenceFeature>
+    </bp:SEQUENCE-FEATURE-LIST>
+  </bp:sequenceParticipant>
+  <bp:physicalInteraction rdf:ID="physicalInteraction1">
+    <bp:AVAILABILITY rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Academic and commercial users can freely use the data only for research purpose. Please, in any articles making use of the data extracted from MINT, refer to Zanzoni, A et al (2002) MINT: a Molecular INTeraction database. FEBS Letters, 513, 135-140. This data is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.</bp:AVAILABILITY>
+    <bp:XREF>
+      <bp:unificationXref rdf:ID="unificationXref1">
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >mint_14809</bp:ID>
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MINT</bp:DB>
+      </bp:unificationXref>
+    </bp:XREF>
+    <bp:DATA-SOURCE>
+      <bp:dataSource rdf:ID="dataSource1">
+        <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MINT database (http://mint.bio.uniroma2.it/mint/)</bp:NAME>
+        <bp:XREF>
+          <bp:publicationXref rdf:ID="publicationXref3">
+            <bp:TITLE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >MINT: a Molecular INTeraction database.</bp:TITLE>
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >pubmed</bp:DB>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >11911893</bp:ID>
+          </bp:publicationXref>
+        </bp:XREF>
+      </bp:dataSource>
+    </bp:DATA-SOURCE>
+    <bp:XREF>
+      <bp:publicationXref rdf:ID="publicationXref1">
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >pubmed</bp:DB>
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >11223036</bp:ID>
+      </bp:publicationXref>
+    </bp:XREF>
+    <bp:PARTICIPANTS>
+      <bp:sequenceParticipant rdf:ID="sequenceParticipant2">
+        <bp:PHYSICAL-ENTITY rdf:resource="#protein1"/>
+      </bp:sequenceParticipant>
+    </bp:PARTICIPANTS>
+    <bp:EVIDENCE rdf:resource="#evidence1"/>
+    <bp:PARTICIPANTS rdf:resource="#sequenceParticipant1"/>
+  </bp:physicalInteraction>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 1.3, Build 225.4)  http://protege.stanford.edu -->

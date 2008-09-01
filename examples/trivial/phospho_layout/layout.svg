@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="1000" width="1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<polygon fill="#FFFFFF" opacity="0.5" points="0,0 1000,0 1000,1000 0,1000 0,0 " stroke="#000000" stroke-width="1" />
+	<line fill="none" opacity="1" stroke="#000000" stroke-dasharray="none" stroke-width="1" x1="881.020532502075" x2="227.107754455733" y1="411.305902964014" y2="588.694097035986" />
+	<line fill="none" opacity="1" stroke="#000000" stroke-dasharray="none" stroke-width="1" x1="881.020532502075" x2="900" y1="411.305902964014" y2="588.694097035986" />
+	<line fill="none" opacity="1" stroke="#000000" stroke-dasharray="none" stroke-width="1" x1="482.855628719185" x2="881.020532502075" y1="233.917708892043" y2="411.305902964014" />
+	<line fill="none" opacity="1" stroke="#000000" stroke-dasharray="none" stroke-width="1" x1="482.855628719185" x2="100" y1="233.917708892043" y2="411.305902964014" />
+	<line fill="none" opacity="1" stroke="#000000" stroke-dasharray="none" stroke-width="1" x1="100" x2="476.563578074476" y1="411.305902964014" y2="588.694097035986" />
+	<line fill="none" opacity="1" stroke="#000000" stroke-dasharray="none" stroke-width="1" x1="100" x2="125.649756790198" y1="411.305902964014" y2="766.082291107957" />
+	<line fill="none" opacity="1" stroke="#000000" stroke-dasharray="none" stroke-width="1" x1="476.563578074476" x2="125.649756790198" y1="588.694097035986" y2="766.082291107957" />
+	<circle cx="482.855628719185" cy="233.917708892043" fill="#FFFFFF" opacity="1" r="15" stroke="#000000" stroke-dasharray="none" stroke-opacity="1" stroke-width="1" />
+	<circle cx="486.874866605652" cy="240.879233119109" fill="blue" opacity="1" r="6.96152422706632" stroke="#000000" stroke-dasharray="" stroke-opacity="" stroke-width="0.333333333333333" />	<text fill="#000000" font-family="Arial" font-size="5" opacity="" stroke="white" stroke-width="1" text-anchor="middle" x="486.874866605652" y="242.545899785776">cmpA
+	</text>	<text fill="#000000" font-family="Arial" font-size="5" opacity="" text-anchor="middle" x="486.874866605652" y="242.545899785776">cmpA
+	</text>
+	<circle cx="474.817152946252" cy="233.917708892043" fill="blue" opacity="1" r="6.96152422706632" stroke="#000000" stroke-dasharray="" stroke-opacity="" stroke-width="0.333333333333333" />	<text fill="#000000" font-family="Arial" font-size="5" opacity="" stroke="white" stroke-width="1" text-anchor="middle" x="474.817152946252" y="235.58437555871">cmpB
+	</text>	<text fill="#000000" font-family="Arial" font-size="5" opacity="" text-anchor="middle" x="474.817152946252" y="235.58437555871">cmpB
+	</text>
+	<circle cx="486.874866605652" cy="226.956184664977" fill="red" opacity="1" r="6.96152422706632" stroke="#000000" stroke-dasharray="" stroke-opacity="" stroke-width="0.333333333333333" />	<text fill="#000000" font-family="Arial" font-size="5" opacity="" stroke="white" stroke-width="1" text-anchor="middle" x="486.874866605652" y="228.622851331643">cmpC
+	</text>	<text fill="#000000" font-family="Arial" font-size="5" opacity="" text-anchor="middle" x="486.874866605652" y="228.622851331643">cmpC
+	</text>
+	<circle cx="100" cy="411.305902964014" fill="#FFFFFF" opacity="1" r="15" stroke="#000000" stroke-dasharray="none" stroke-opacity="1" stroke-width="1" />
+	<circle cx="881.020532502075" cy="411.305902964014" fill="#FFFFFF" opacity="1" r="15" stroke="#000000" stroke-dasharray="none" stroke-opacity="1" stroke-width="1" />
+	<circle cx="125.649756790198" cy="766.082291107957" fill="#FFFFFF" opacity="1" r="15" stroke="#000000" stroke-dasharray="none" stroke-opacity="1" stroke-width="1" />
+	<circle cx="227.107754455733" cy="588.694097035986" fill="#FFFFFF" opacity="1" r="15" stroke="#000000" stroke-dasharray="none" stroke-opacity="1" stroke-width="1" />
+	<circle cx="900" cy="588.694097035986" fill="#FFFFFF" opacity="1" r="15" stroke="#000000" stroke-dasharray="none" stroke-opacity="1" stroke-width="1" />
+	<circle cx="476.563578074476" cy="588.694097035986" fill="#FFFFFF" opacity="1" r="15" stroke="#000000" stroke-dasharray="none" stroke-opacity="1" stroke-width="1" />	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="554.064143478904" y="500.333333333333">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" text-anchor="middle" x="554.064143478904" y="500.333333333333">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="890.510266251037" y="500.333333333333">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" text-anchor="middle" x="890.510266251037" y="500.333333333333">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="681.93808061063" y="322.945139261362">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" text-anchor="middle" x="681.93808061063" y="322.945139261362">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="291.427814359593" y="322.945139261362">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" text-anchor="middle" x="291.427814359593" y="322.945139261362">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="288.281789037238" y="500.333333333333">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" text-anchor="middle" x="288.281789037238" y="500.333333333333">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="112.824878395099" y="589.027430369319">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" text-anchor="middle" x="112.824878395099" y="589.027430369319">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="301.106667432337" y="677.721527405305">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="1" opacity="1" text-anchor="middle" x="301.106667432337" y="677.721527405305">pp
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="227.107754455733" y="593.694097035986">e
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" text-anchor="middle" x="227.107754455733" y="593.694097035986">e
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="881.020532502075" y="416.305902964014">c
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" text-anchor="middle" x="881.020532502075" y="416.305902964014">c
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="482.855628719185" y="238.917708892043">a
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" text-anchor="middle" x="482.855628719185" y="238.917708892043">a
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="476.563578074476" y="593.694097035986">g
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" text-anchor="middle" x="476.563578074476" y="593.694097035986">g
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="100" y="416.305902964014">b
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" text-anchor="middle" x="100" y="416.305902964014">b
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="125.649756790198" y="771.082291107957">d
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" text-anchor="middle" x="125.649756790198" y="771.082291107957">d
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" stroke="white" stroke-width="1" text-anchor="middle" x="900" y="593.694097035986">f
+	</text>	<text fill="#000000" font-family="Arial" font-size="15" opacity="1" text-anchor="middle" x="900" y="593.694097035986">f
+	</text><!-- 
+	Generated using the Perl SVG Module V2.36
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+ -->
+</svg>

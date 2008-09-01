@@ -1,0 +1,46 @@
+$str->Return( -object => 'node/information/names/shortLabel' );
+
+# path ->
+node	#node全て
+$str->{node}
+
+node/information # node全てのinformation全て(array)
+
+node[id="1"]/information/ # node (id=1)のinformation
+$str->{node}->{1}->{information}
+
+node/information/names/shortLabel	#text
+node/information/names/fullName		#text
+node/information/names/alias[1]@type	#text
+
+for ( keys $str->{node} ) {
+    $_->{information}->{names}->{alias}[1]->att{'types'};
+}
+
+node/information/names/alias[1]@typeAc	#text
+node/information/names/alias[1]       # text
+node/information/sequence	      #text
+node/information/organism@ncbiTaxId   
+node/information/organism/names/shortLabel
+node/information/organism/names/fullName
+
+edge/names/fullName
+edge/experimentList/	#array
+edge/experimentList/experimentRef[1]
+edge/experimentList/experimentRef[2]
+
+edge/experimentList/experimentRole/xref/primaryRef['db'="psi-mi"]
+
+こんなのもok. 個別のノード/エッジにアクセス。
+
+node[id="1"]/information/names/shortLabel	
+node[label="foovar"]/score/degree
+
+
+{
+	id => ""
+	label => ""
+	information => {...}
+}
+
+のとき。

@@ -1,0 +1,151 @@
+eXpanda version 0.0.5
+
+eXpanda is a Platform for analyzing and visualizing networks.
+This software requires the latest version of perl and expat (XML::Parser)  version 1.95.0 or greater to run. Other required modules are written in DEPENDENCIES, so please check and install these modules. Installation guide is written below.
+
+NOTE: Users of Mac OS X please take care; Please see [ Installation note for Mac OS 10.5 ]
+
+INSTALLATION [ UNIX or BSD based OS ]
+
+First step is to install expat. If you already have expat in your system, skip and go on to the next step.
+
+[Expat Install]
+
+Before you install 'eXpanda', please install expat. You can download expat
+from:
+
+
+	http://sourceforge.net/projects/expat/
+
+
+Decompress archive and move to expat directory. After you downloaded  expat from sourceforge, run the configration script to build Expat from a source by typing:
+
+
+	./configure
+
+After you have succeeded in configuring, you can build and install expat by running "make" and "make install" command. Note that you need to have a write permission into the directories where the codes will be installed. example are shown below:
+
+
+	make
+
+	make install   #or "sudo make install"
+
+
+After you finished  your expat installation, go on to the next step.
+
+
+[eXpanda install]
+
+
+To configure this module, move to the directory that contains this README file, and type the following:
+
+
+	perl Makefile.PL
+
+
+Alternatively, if you are not a root user or plan to install eXpanda somewhere other than your system's perl library directory. You can type like this:
+
+
+	perl Makefile.PL PREFIX=/home/you/perl INSTALLDIRS=perl
+
+
+While configuring , you may see the following warnings:
+
+
+
+	- Acme::Bleach             ...missing.
+	==> Auto-install the 1 mandatory module(s) from CPAN? [y] 
+
+This warning of dependency will be solved by installing these modules manually or automatically. If you press [y], installer will try to install the modules automatically through your CPAN module in the next 'make' step. If you press [n], you have to manually install the module from CPAN(http://cpan.org/).
+
+
+After you installed the dependency modules (if you selected) and eXpanda, type the following command: 
+
+
+	sudo make
+
+If you are a super user, just type:
+
+	
+	make
+
+
+You can also install only the dependant modules. Type the following command.
+	
+
+	sudo make installdeps       # install dependencies only
+
+When you type and start the make process, eXpanda will run the CPAN module and try to download and install the dependencies. Dependency module installation process does not complete always. If the make stops by some dependant error, you can check the installed/not installed dependencies by "checkdeps" option of make. Type the following command:
+
+
+	make checkdeps
+
+
+After you finished all dependencies installation, you should test this module before 'make install' by typing:
+
+	make test
+
+If you have a write access to the installation directories, you may then install by typing:
+
+	sudo make install
+
+
+If you could not install exPanda by following the installation guide above, please report us by e-mail. Send the mail to <po@sfc.keio.ac.jp>.
+
+
+[ Installation note for Mac OS 10.5 ]
+
+First you need to download Graph::Layout::Aesthetic which is the dependent module of eXpanda.
+
+      http://search.cpan.org/CPAN/authors/id/T/TH/THOSPEL/Graph-Layout-Aesthetic-0.12.tar.gz
+
+Deflate tarball and change directory to Graph-Layout-Aesthetic, Open Graph-Layout-Aesthetic/include/aglo.h with your favorite editor.
+
+	% cd Graph-Layout-Aethetic
+
+	% emacs include/aglo.h
+
+Edit line 17 of aglo.h , rewrite 'true' to 'True', 'false' to 'False'.
+
+   # Before
+   L17: typedef enum aglo_boolean {
+   L18: false=0,                      # <= This line cause Error in gcc version 4.0.1 (Apple Inc. build 5465)
+   L19: true=!false                   # <= This line cause Error in gcc version 4.0.1 (Apple Inc. build 5465)
+   L20: } aglo_boolean;
+
+   # After
+   L17: typedef enum aglo_boolean {
+   L18: False=0,                      # <= 'false' to 'False'
+   L19: True=!false                   # <= 'true' to 'True'
+   L20: } aglo_boolean;
+
+Build and Install Graph::Layout::Aethetic, continue installing eXpanda
+
+    % perl Makefile.PL                   # Set PREFIX if you don't have root permission.
+    % make             
+    % sudo make install                  # 'make install' if you don't have root permission.
+
+
+DEPENDENCIES
+
+    Class::Struct
+    LWP::UserAgent
+    SOAP::Lite
+    XML::Twig
+    SVG
+    Graph::Layout::Aesthetic
+
+Author
+
+Yoshiteru Negishi < negipo@sfc.keio.ac.jp >
+Current maintenance (including this release) by Hiroyuki Nakamura < t04632hn@sfc.keio.ac.jp >
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2006, Yoshiteru Negishi < negipo@sfc.keio.ac.jp >
+Copyright (C) 2008, Hiroyuki Nakamura < t04632hn@sfc.keio.ac.jp >
+
+This library is a free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+

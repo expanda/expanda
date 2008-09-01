@@ -1,0 +1,625 @@
+eXpanda - [Platform for observing interactome network. ]
+Supplementary documentation for eXpanda.
+
+1. Introduction
+This file is a supplementary document for eXpanda: a perl module for generating graphical interactome, network.
+
+
+2. Description
+2.1 File definition
+eXpanda corresponds to multiple types of input files. Instructions for handling the data through eXpanda will be described in this section.
+
+
+2.1.1 "new()" input files
+Each input files must be declared by the argument "new()".
+
+
+2.1.1.1 Simple Interaction File
+SIF files for input will be declared as '-filetype': 'sif'.
+SIF file is a standard file to describe protein-protein interaction. 
+If you want to draw an interaction network of  Protein_A and Protein_B, you can define it by the following. 
+Protein_A pp Protein_B
+
+
+2.1.1.2 Graphical Markup Language
+GML files for input will be declared as '-filetype': 'gml'.
+The GML file is an output file for Cytoscape 2.x. This file contains several graphical attributes. Since eXpanda parses and achieve these data to the structure, the attribute will be defined by default.
+
+NOTE:
+If you input "-object" for "as_network", input something for "-limit", and no input for "-network", you will get subgraphs, which have only limited objects.
+
+
+2.1.1.3 Perl Multiple Hash
+This rule is also describe in POD: Perl Document. Structure formation is as follows:
+$hash = (a => {b => 1, c => 1}, c => {d => 1})
+To make this hash, You can also code as:
+my $hash = undef;
+$hash->{a}->{b} = 1;
+$hash->{a}->{c} = 1;
+$hash->{c}->{d} = 1;
+
+
+2.1.1.4  Database flat file: PSI-MI or BioPax format file
+eXpanda supports PSI-MI version 1<http://psidev.sourceforge.net/mi/xml/doc/user/> and BioPax Level 1, Version 1.4<http://www.biopax.org/index.html>. PSI-MI is the standard data format for representing molecular interaction network, while BioPax represents biological pathway network.
+In this section, we introduce how eXpanda store the information of each node or edge from the input files into objects. Why not read PSI-MI or BioPax SPEC sheet. This is because in specific PSI-MI data from each databases, the data does not frequently store full information defined with PSI-MI specification.
+The list of readable database flat files is as follows.
+
+- DIP <http://dip.doe-mbi.ucla.edu/>
+ DIP(Database of Interacting Proteins) is a database of experimentally defined interactions made by UCLA. DIP distribute PSI-MI formatted file on the web site.
+
+- MINT<http://mint.bio.uniroma2.it/mint/>
+ MINT(Molecular INTractions database) is a human-curated database of experimentally verified proteins mined from literatures. This database was developed by University of Rome. MINT distribute PSI-MI version 1 and 2.5 formatted data file on the web site.
+
+- IntAct<http://www.ebi.ac.uk/intact/site>
+ IntAct is a freely available database of protein interaction data. Interaction of this database is human-curated which is either mined from literatures or direct submission by researchers. IntAct destribute PSI-MI 1 and 2.5 formatted flat file on the web site.
+
+- HPRD<http://www.hprd.org/>
+HPRD(Human Protein Reference Database) is database of protein interaction in human. Currently, this database distribute only PSI-MI version 2.5, hence eXpanda does not support the new data, We recommend you to use the older data files made with PSI-MI version 2.5.
+
+- MIPS<http://mips.gsf.de/>
+MIPS(Munich Information center for Protein Sequences) has two interaction databases; Mpact and MIPS mammalian interaction. Both databases distribute PSI-MI version 1 or 2.5 data.
+
+- BioCyc<http://www.biocyc.org/>
+BioCyc is a collection of pathway database, developed by Bioinformatics Research Group at SRI international. BioCyc, include EcoCyc or more. They distribute flat file at BioPax level 1.
+
+Default attribute for the input will be defined if you choose these file formats. See section 2.4.3: "Default input attributes in 'xml', 'mif'".
+
+
+
+2.1.2 "-limit" object size limitation list file
+This file defines the object size limitations. 
+If you want to include node labeled "lacZ" and "lacY", code the following: 
+
+node[tab]lacZ
+node[tab]lacY
+edge[tab]lacZ[tab]lacY
+
+Also you can apply SIF file for input.
+
+lacZ pp lacY
+Hash reference definition rules are as follows.
+If you want to include node labeled "lacZ" and "lacY", code the following: 
+
+$list->{node}->{lacZ} = 1;
+
+You can put an array reference here as:
+
+@tmp_list = (lacZ, lacY);
+@{$list->{node}} = @tmp_list;
+
+You can set the edge between lacZ to lacY by the following:
+
+$list->{edge}->{lacZ}->{lacY} = 1;
+
+Note:
+If you only limit the number of nodes, the edges among limited nodes will be applied.
+
+
+
+2.1.3 "-from" object size limitation list file
+When you set "-from" option, "-object" option must be set by one of the following parameters;  "node:graphics", "edge:graphics", "all:graphics", "node:score", "edge:score", "all:score", "node:information", "edge:information" or "all:information". File that is selected as an input defines all attributes of the objects.
+
+Note that the file itself must be written in a tabular text form. If you want "lacZ" node to be filled in red, type:
+
+node[tab]lacZ[tab]fill[tab]#FF0000
+You may also type:
+edge[tab]lacZ[tab]lacY[tab]stroke[tab]#FF0000
+If you want to apply the scoring parameter for the size of the edge, type:
+edge[tab]lacZ[tab]lacY[tab]edge_score[tab]12
+
+If you choose graphics or score attribute, input value for this file (the last term) will be limited. See section "2.2 Rules of structure object.
+
+
+
+
+2.2 Rules for structure object
+In this section, we define the definition of structure.
+
+
+2.2.1 Score
+Score object is basically the input of integer or float. If you want to put string or hash reference data, put it in the information object described in section "2.2.2 Information".
+EXAMPLE:
+node:score:clique
+
+2.2.2 Information
+Information object is the only object that is arrowed to input string or hash reference. Default inputted attributes exist if you input the network structure by "Database flat file", choosing file format of "xml" or "mif" into the "new()" constructor. See section "2.1.1.4 Database flat file: PSI-MI or BioPax format file" for more details.
+EXAMPLE:
+node:information:GO
+
+2.2.3 Graphics
+Graphics is the most limited attribute. Graphics attribute represent the design for it's objects. The available list of attributes and input values are as follows.
+NOTE:
+Default size for each object is changeable by using the  option "-object_size" or "-label_size" in "out()".
+
+- node graphics attributes:
+
+node:graphics:fill
+Definable value: Color
+Default value: #FFFFFF
+Color of node. You can simply type the color name (red, blue, etc.) or web safe color format (c.f) '#000000') here. Note that Gradation mode only supports the web safe color format.
+
+node:graphics:stroke
+Definable value: Color
+Default value: #000000
+Color of stroke around node.
+
+node:graphics:stroke-width
+Definable value: Float
+Default value: 1
+Size of stroke around node.
+
+node:graphics:stroke-opacity
+Definable value: Float (between 0 with 1)
+Default value: 1
+Stroke opacity of node.
+
+node:graphics:w
+Definable value: Float
+Default value: 6
+Width of node.
+
+node:graphics:type
+Definable value: String (oval diamond star heart)
+Default value: "oval"
+Form of node.
+
+node:graphics:opacity
+Definable value: Float (between 0 with 1)
+Default value: 1
+Opacity of node.
+
+node:graphics:stroke-dash
+Definable value: List of Float
+Default value: none
+Stroke dash pattern of node. c.f) "2", "5,10", "1,2,3,4",
+
+node:graphics:font-opacity
+Definable value: Float (between 0 with 1)
+Default value: 1
+Label opacity of node.
+
+node:graphics:smile
+Definable value: Color
+Default value: none
+Smile color of node. If you put this option, the node smiles :)
+
+node:graphics:font-size
+Definable value: Float
+Default value: 1
+Label size of node.
+
+node:graphics:font-family
+Definable value: String (existing font name)
+Default value: Futura
+Label font family of node.
+
+node:graphics:font-color
+Definable value: Color
+Default value: #000000
+Label font color of node.
+
+- edge graphics attributes:
+
+edge:graphics:stroke-width
+Definable value: Float
+Default value: 1
+Stroke width of edge.
+
+edge:graphics:stroke
+Definable value: Color
+Default value: #000000
+Stroke color of edge.
+
+node:graphics:stroke-dash
+Definable value: List of Float
+Default value: none
+Stroke dash pattern of edge. c.f) "2", "5,10", "1,2,3,4",
+
+edge:graphics:opacity
+Definable value: Float (between 0 with 1)
+Default value: 1
+Opacity of edge.
+
+edge:graphics:font-size
+Definable value: Float
+Default value: 1
+Label font size of edge.
+
+edge:graphics:font-opacity
+Definable value: Float (between 0 with 1)
+Default value: 1
+Label opacity of edge.
+
+edge:graphics:font-family
+Definable value: String (existing font name)
+Default value: Futura
+Label font family of edge.
+
+edge:graphics:font-color
+Definable value: Color
+Default value: #000000
+Label font color of edge.
+
+
+
+2.3 Rules on "-from" and "-to"
+"-from" and "-to" is the sub-option of option "-apply_information"/"-get_information" on "Apply()"/"Return()". It allows database access and apply/return information.
+Each information that can be input and output are as follows.
+
+
+
+
+2.4 Default input attributes
+
+2.4.1 Default input attributes in 'sif' or 'str'
+ There are no attributes except "node:label" and "edge:label". "edge:label" well always be written with  'pp'.
+
+
+2.4.2 Default input attributes in 'gml'
+ There are label information, and graphics information.
+If you use gml file as an input from Cytoscape, some of the graphics attributes are set from the beginning. 
+ If you want to reset graphics and apply default graphics set of eXpanda, you can use "-reset" option of "Apply()" as input same strings with "-object", or "all", "node:all", "edge:all", and "except_xy".
+"except_xy" resets others except for the coordinates.
+
+
+2.4.3 Default input attributes in 'xml', 'mif'
+There are many information of default parameters that are ready for you in eXpanda, if you choose database flat file for input data.
+The list of all default parameters corresponding to each database flat files are as follows.
+
+DIP <http://dip.doe-mbi.ucla.edu/>
+[node information]
+node:information:ncbiTaxId : [String]
+ 'taxid' represents ncbi taxonomy id of each proteins.
+ c.f) 10036
+
+node:information:organis_fullName : [String]
+ Protein's organism full name.
+ c.f)Mesocricetus auratus
+
+node:information:protein_fullName : [String]
+ 'name' is interaction participant's full-name,
+ c.f) major prion PrP-Sc protein precursor
+
+node:information:protein_shortLabel : [String]
+ 'name' is interaction participant's short label name, but this attribute does not always be filled. Note that it is sometimes undefined. 
+ c.f) groEL
+
+node:information:EXPR : [String]
+ EXPR can be 'dip','swissprot','pir','gi' or 'refseq'.
+ Value represent reference id to databases noted above.
+Note that every node does not always have a reference id to all databases above.
+ c.f) 'P07702' if EXPR is 'swissprot', 2144347 if EXPR is 'gi'
+
+[edge information]
+edge:information:pubmedid :[String]
+ 'pubmedid' is an id of article from NCBI PubMed that reports the protein's interaction. 
+ c.f) 15882410
+
+edge:information:interactionDetection :[String]
+ 'interactionDetection' is the name of the experiment in which the interaction was detected.
+ c.f) Two Hybrid Test
+
+
+MINT<http://mint.bio.uniroma2.it/mint/>
+[node information]
+node:information:ncbiTaxId : [String]
+ 'ncbiTaxId' is a ncbi taxonomy id for each proteins.
+  c.f) 10036
+
+node:information:organism_fullName : [String]
+Full name of the protein's organism.
+ c.f)Mesocricetus auratus
+
+node:information:protein_shortLabel : [String]
+ 'protein_shortLabel' is the short label of protein name like 'RISB', which is '6,7-dimethyl-8-ribityllumazine synthase' in full name. 'name' tag is sometimes undefined, because some protein names are the same as  Uniprot accession number.
+  c.f) RL10, O34810
+
+node:information:EXPR  : [String]
+EXPR is only acceptable to 'uniprot'.
+ Value is the reference id for the databases noted above.
+ c.f) 'O24888' if EXPR is uniprot.
+ 
+[edge information]
+edge:information:interaction_shortlabel :[String]
+ 'name' is the interaction's short label. Usually the label's name is written in 'Protein participant name A - Protein participant name B'. 
+
+edge:information:interactionType :[String]
+ 'interaction_type' stores information which represent the type of interaction. 
+ c.f) aggregation
+
+edge:information:role :[Hash reference]
+ 'role' stores information which represent the role of the corresponding protein of either 'pray' or 'bait'.  
+ The internal reference: {'pray|bait' => 'bait|pray'}
+NOTICE: 
+ This hash reference key/value relationship is the same as the '-hash' option.
+ You may return the structure such as {'node1' => {'node2' => {'pray' => 'bait'}}}, which means that node1 is pray and node2 is bait.
+ c.f) {'pray' => 'bait'}
+
+edge:information:isTaggedProtein :[Hash reference]
+ 'isTaggedProtein' stores information whether each node is tagged or not. The data structure is same as 'edge:information:role'.
+ c.f) {'true' => 'false'}
+
+edge:information:isOverexpressedProtein :[Hash reference]
+ 'isTaggedProtein' stores information whether each node is an over expressed protein or not. The data structure  is same as 'edge:information:role'.
+ c.f) {'true' => 'false'}
+
+IntAct<http://www.ebi.ac.uk/intact/site>
+[node information]
+node:information:protein_fullName : [String]
+ 'name' is the interaction participant's full-name.
+ c.f) major prion PrP-Sc protein precursor
+
+node:information:protein_shortLabel : [String]
+ 'name' is the interaction participant's short label name.
+ c.f) groEL
+
+node:information:ncbiTaxId : [String]
+ 'taxid' is the ncbi taxonomy id for each protein.
+ c.f) 10036
+
+node:information:organism_fullName : [String]
+ Full name of the \protein's organism.
+ c.f)Escherichia coli
+
+node:information:organism_shortLabel : [String]
+Short label of the protein's organism.
+ c.f)ecoli
+
+node:information:sequence : [String]
+ Protein's amino acid sequence.
+ c.f)SKEKFERTKPHVNVGTIGHVDHGKTTLTA...
+
+node:information:EXPR  : [String]
+ EXPR can be 'uniprot', 'interpro', 'intact', 'sgd', 'uniprotkb' or 'GO'.
+ Value is the reference id to databases noted above.
+ c.f) 'O24888' if EXPR is uniprot.
+
+[edge information]
+edge:information:interaction_shortLabel :[String]
+ 'interaction_shortLabel' is the interaction's short label. 
+ c.f) eftu-efts
+
+edge:information:interaction_fullName :[String]
+ 'interaction_fullName' stores interaction's full name. 
+ c.f) The structure of the Escherichia coli EF-Tu.EF-Ts complex at 2.5 A resolution
+
+edge:information:interactionType :[String]
+'interaction_type' stores information which represent the type of interaction. 
+ c.f) aggregation 
+
+edge:information:pubmedid :[String]
+ 'pubmedid' is id of the article for NCBI PubMed that reports the interaction detected. 
+ c.f) 15882410 
+
+edge:information:EXPR :[String]
+ EXPR : complex-property, 3d-resolution, kd, etc...
+ This tags from PSI-MI's attribution tag. so EXPR is attribution tag's name attribution. Value is text enclosed attribute tag.
+
+edge:information:role :[Hash reference]
+ 'role' store the information that which role protein 'pray' or 'bait'. The structure architecture is same with 'edge:information:role' of MINT.
+ c.f) {'pray' => 'bait'}
+
+
+HPRD<http://www.hprd.org/>
+ [node information]
+
+node:information:protein_shortLabel : [String]
+ 'name' is interaction participant's short label name.
+ c.f) Aldehyde dehydrogenase 1
+
+node:information:ncbiTaxId : [String]
+ 'taxid' is ncbi taxonomy id of each proteins.
+ c.f) 9606
+
+node:information:organism_fullName : [String]
+ Protein's organism full name.
+ c.f)Homo sapiens
+
+node:information:organism_shortLabel : [String]
+ Protein's organism full name.
+ c.f)Human
+
+node:information:sequence : [String]
+ Protein's amino acid sequence by lower-case character.
+ c.f)msssgtpdlp vlltdlkiqy tkifinnewh ...
+
+node:information:EXPR  : [String]
+ EXPR is 'HPRD', 'Ref-Seq', 'Swiss-Prot', 'Locus-Link','PDB'.
+ Value is reference id to databases noted above.
+ c.f) uniprot:O24888
+
+[edge information]
+edge:information:pubmedid :[String]
+ 'pubmedid' is id of NCBI PubMed for article that report the interaction detected. 
+ c.f) 15882410 
+
+ 
+edge:information:interactionDetection :[String]
+ 'interactionDetection' is name of experiment how the interaction detect.
+ c.f) in vivo
+
+edge:information:EXPR :[String]
+ EXPR : complex-property, 3d-resolution, kd, etc...
+ This tags from PSI-MI's attribution tag. so EXPR is attribution tag's name attribution.
+ Value is text enclosed attribute tag.
+
+MIPS<http://mips.gsf.de/>
+[node information]
+node:information:protein_fullName : [String]
+ 'name' is interaction participant's full-name.
+ c.f) 60S large subunit ribosomal protein
+
+node:information:protein_shortLabel : [String]
+ 'name' is interaction participant's short label name or CYGD database id.
+ c.f) YIL133C
+
+node:information:ncbiTaxId : [String]
+ 'taxid' is ncbi taxonomy id of each proteins.
+ c.f) 10036
+
+node:information: EXPR  : [String]
+ EXPR is only 'CYGD'
+ Value is reference id to databases noted above.
+ c.f) 'YIL133C' if EXPR is 'CYGD'.
+
+[edge information]
+edge:information:pubmedid :[String]
+ 'pubmedid' is id of NCBI PubMed for articles that report the interaction detected. 
+ c.f) 15882410 
+
+
+BioCyc<http://www.biocyc.org/>
+[node information]
+node:information:CELLULAR-LOCATION : [String]
+ Cellular location of the node's protein.
+ c.f)cellular_component unknown
+
+node:information:SEQUENCE : [String]
+ Amino acid sequence of the protein in a big character. If the node is a protein , this information will be defined.
+ c.f)MKEKTIIIVGGGQAAAMAAASLRQQG...
+
+node:information:NAME : [String]
+ Molecular name of interaction participant. Note that this is not the general gene or protein name.
+ c.f)HCAD-MONOMER
+
+node:information:SYNONYMS : [Array]
+ Synonyms of the interaction participants, including general genes or protein names.
+ c.f) ('B2542','PhdA','YfhY','HcaD')
+
+node:information:ORGANISM_NAME : [String]
+ 'ORGANISM_NAME' is equal to 'organism_fullName'
+ c.f) Escherichia coli K-12 
+
+node:information:STOICHIOMETRIC-COEFFICIENT : [String]
+ 'STOICHIOMETRIC-COEFFICIENT' is a  property of Biopax. For details, see the Biopax manual.
+ c.f) 1 or 0
+
+node:information:EXPR  : [String]
+ EXPR can be 'NCBI', 'GO', 'UniProt'.. or more. Note that EXPR is not always a reference for protein database . For example, the node of the data for BioCyc is not always a protein. 
+ c.f) 'P0AB93' if EXPR is uniprotKB, 'NIL' if EXPR is GO
+
+[edge information]
+edge:information:COMMENT :[String]
+ 'COMMENT' is one or two sentence of description about the interaction.
+
+edge:information:NAME :[String]
+ 'NAME' is name of the interaction.
+ c.f)ARCA-RX
+
+edge:information:EXPR :[String]
+ EXPR can be 'unificationXref' or 'publicationXref', represening it's pathway interaction.
+ c.f) EcoCyc:BAES-RXN PubMed:7699720
+
+
+2.5 Analyzing methods
+There are some analyzing methods accessible in Analyze().
+
+2.5.1 'degree'
+When you analyze with this method, the scoring data will be stored in "node:score:degree".
+The stored value is Integer.
+No support is given in '-option' option.
+'degree' represents the hub weight analysis which will simply count the edges that joins each nodes. This score displays the contribution of each nodes. Therefore, disappearance of the highly scored node will cause a critical damage to the network.
+No option is abailable for input for this method.
+
+EXAMPLE:
+  $str->Analyze( -method => 'degree');
+
+
+2.5.2 'normalized_degree'
+When you analyze with this method, the scoring data will be stored in "node:score:normalized_degree".
+The stored value is Integer.
+No support is given in the '-option' option.
+'normalized_degree' represents the advanced degree analysis. Basically, this just counts the connected nodes, but in this algorithm, the score does not reflect the exact value when the node is in the all connected cluster. If the neighbor node is connected with other neighbor nodes, the score counts them as a single node. This score express contribution of each nodes to the network with more accuratacy than the normal degree analysis.
+
+EXAMPLE:
+  $str->Analyze( -method => 'normalized_degree');
+
+
+2.5.3 'clique'
+When you analyze with this method, the scoring data will be stored in "node:score:clique" and "edge:score:clique".
+The stored value is integer which express the number of nodes that is connected with the largest subgraph. If the object joins with more than one complete subgraphs, this score returns the maximum  value.
+There are no options supported for this method.
+'clique' represents the searching method for clique. Clique is the node that exists on the complete graph. This method finds out all complete subgraphs on the  network, and markup objects which is the elements of its subgraphs.
+
+EXAMPLE:
+  $str->Analyze(
+                -method => 'clique',
+                -option =>{
+                           -threshold => 5,
+                           },
+                );
+
+
+
+2.5.4 'connectivity'
+When you analyze with this method, the scoring data will be stored in "node:score:connectivity".
+The stored value is Integer.
+'-option' supports the following sub options:
+  '-depth' => [Integer]: steps of edges.
+'connectivity' represents connectivity analysis, which is the advanced analysis of the hub weight. This score reflects the reachable nodes with the use of some steps on the edges. The number of steps are able to be set on the '-depth' option. Connectivity is the advanced version of degree, which indicates the total number of reachable nodes from the number of steps applied in '-depth'.  
+
+EXAMPLE:
+  $str->Analyze(
+                -method => 'connectivity',
+                -option => {
+                            -depth => 3,
+                           }
+                );
+
+2.5.5 'accuracy'
+When you analyze with this method, the scoring data will be stored in the "node:score:accuracy" and "edge:score:accuracy".
+The stored value is float(0 to 1)/Integer(0 or 1).
+'-option' supports the following sub options:
+  '-object' => [String]: Same data format as the other '-object'.
+This option defines the object information in the sample structure to analyze accuracy(TruePositive / FalsePositive + TruePositive).
+  '-with' => [eXpanda blessed structure]: True set of network.
+  '-with_object' => [String]: Data format same as other '-object'.
+This option defines the object information in true set structure to analyze accuracy.
+'accuracy' is the accuracy analysis which compares the sample network structure with the true set structure. c.f) Database flat file.
+The common problem for this analysis is the id unmatch. eXpanda solve this problem using object information. Using '-object' and '-with_object' options, eXpanda is able to solve this problem without changing the node label.
+The applied score in 'node:score:accuracy' is the accurate ratio of joined edge.
+The applied score in 'edge:score:accuracy' is the accurate ratio / inaccurate ratio in integer 1/0.
+Return value exists. 
+For example, If you are using 'gi' labeled network as $str,:
+
+$score = $str->Analyze(
+                       -method => 'accuracy',
+                       -option => {
+                                   -object => 'node:label',
+                                   -with => $dip_str,
+                                   -object => 'node:information:gi',
+                                  }
+                       );
+
+
+2.5.6 'coverage'
+When you analyze with this method, the scoring data will be stored in the "node:score:coverage" and "edge:score:coverage".
+The stored value is float(0 to 1)/Boolean(0 or 1).
+'-option' supports the following sub options:
+  '-object' => [String]: Same data format as other '-object'.
+This option defines the object information in the sample structure to analyze coverage (TruePositive / TruePositive + FalseNegative).
+  '-with' => [eXpanda blessed structure]: True coverage set of network.
+  '-with_object' => [String]: Data format same as other '-object'.
+This option defines the object information in true set structure to analyze coverage.
+'coverage' is the coverage analysis which compares the sample network structure with the true set structure. c.f) Database flat file.
+Description in details are the same as section 2.5.4 "'coverage'".
+The applied score in 'node:score:coverage' is the accurate ratio of the joined edge.
+The applied score in 'edge:score:coverage' is the accurate ratio / inaccurate ratio in integer 1/0.
+Return value exists. This value is equal to the whole network coverage.
+
+For example, if you using 'gi' labeled network as $str:
+$score = $str->Analyze(
+                       -method => 'coverage',
+                       -option => {
+                                   -object => 'node:label',
+                                   -with => $dip_str,
+                                   -object => 'node:information:gi',
+                                  }
+                       );
+
+
+
+3. LICENCE AND COPYRIGHT
+Copyright (c) 2006, Yoshiteru Negishi <po@sfc.keio.ac.jp>. All rights reserved.
+
+

@@ -1,0 +1,168 @@
+= eXpath Specification =
+
+== デリミタ ==
+
+ * デリミタは':'もしくは'/'を使う。
+
+== 文法規則 ==
+
+=== 従来記法 ===
+
+{{{
+
+# 描画要素アクセス
+
+node:graphics:w
+node:graphics:fill
+
+# information
+
+node:information:GI
+node:information:name
+
+# label
+
+node:label
+
+}}}
+
+従来記法は深さ3までしかアクセスできなかった。
+ハッシュのみに対応しており、配列を利用する事ができない。
+検索できない。
+
+=== eXpath ===
+
+{{{
+
+# graphics
+
+/node/graphics/w
+/node/graphics/fill
+
+# information
+
+/node/information/names/shortLabel	#text
+/node/information/names/fullName		#text
+/node/information/sequence	      #text
+
+# advanced
+
+/node/information/names/alias[1]@type	#text
+/node/information/names/alias[1]@typeAc	#text
+/node/information/names/alias[@type=='foovar']       # text
+/node[id="1"]/information/names/shortLabel
+
+}}}
+
+
+==== 基本 ====
+
+{{{
+#!perl
+
+$str->{
+	'node' => {
+		     1 => {
+			   label => ,
+			   information => ,
+			},
+	 'edge' => {
+		      1 => 2 => {
+                                  score =>
+		      	        }
+	 	   }
+       }
+
+}}}
+
+/node/label
+となっていた場合、全ノードのラベルを対象とする事を表す。
+
+/node/1/label
+のようにはならない。
+
+/edge/score
+も同様。
+
+基本的には、パスの階層がハッシュの深さと対応する。
+
+==== 配列要素へのアクセス ====
+
+配列要素は[NUMBER]を後ろにつけることで個別にアクセスすることができる。
+
+node/information/names/alias[0]
+
+alias配列の0番目を表す。
+
+配列でないものは配列として扱うことはできない。
+
+node[0]/information/names/alias
+
+はエラー。
+
+==== 検索 ====
+
+node[id="1"]/information/ # node (id=1)のinformation
+node[label="foovar"]/score/degree
+
+これは意味が無い例.labelを特定した上でdegree>5を指定している。
+
+node[label="foovar"]/score[degree > 5]/betweenness
+
+このような場合、上位要素の検索クエリを優先する為、以下のpathと同じ結果が返る。
+
+node[label="foovar"]/score/betweenness
+
+次の場合は有効。
+
+node[betweenness > 5]/graphics/w # 暗黙的にnode[./score/betweenness > 5]/graphics/wに変換される。
+node[label == 'foo']/graphics/w
+node[./information/organism == 9801]/graphics/fill
+
+ノードのラベルをエイリアスでtypeAcがMI:001のものに置き換えたい。
+
+$str->Apply(
+	    -object => "/node/label",
+	    -replace_by => "/node/information/names/alias[@typeAc == 'MI:001']"
+	   );
+
+$str->Return(
+	     -where => "/node[betweenness > 5]/label",
+	     -as    => 'array',
+	     );
+
+$str->Apply(
+	    -object => '/node/graphics/w',
+	    -value  => ....
+	    -from   => '/node[degree > 3]/score/betweeness'
+	   );
+
+edge[node/score/degree > 5]/graphics/stroke-width
+
+==== 関数 ====
+
+ * include
+
+edge[include('a')]/graphics/stroke    
+edge[include('a','b')]/graphics/stroke
+
+ * without
+
+edge[without('a')]/graphics/stroke
+edge[without('a','b')]/graphics/stroke
+
+ * where
+
+edge[node/degree > 5')]/graphics/stroke
+edge[where('node/label is foo')]/graphics/stroke
+edge[where('node/label not foo')]/graphics/stroke
+
+ * 複数条件演算 
+
+edge[where('label not foo and degree > 5')]/...
+
+==== 属性 ====
+
+==== 後方互換 ====
+
+==== エラー ====

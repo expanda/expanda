@@ -1,0 +1,13 @@
+--- include/aglo.h	2008-09-01 10:48:33.000000000 +0900
++++ include/aglo.h.org	2008-09-01 10:50:40.000000000 +0900
+@@ -15,8 +15,8 @@
+ typedef double aglo_real;
+ 
+ typedef enum aglo_boolean { 
+-    False=0, 
+-    True=!false
++    false=0, 
++    true=!false
+ } aglo_boolean;
+ 
+ typedef aglo_unsigned aglo_vertex;

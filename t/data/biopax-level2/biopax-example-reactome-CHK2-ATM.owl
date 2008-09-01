@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.biopax.org/examples/biopax-example-reactome-CHK2-ATM.owl#"
+    xmlns:bp="http://www.biopax.org/release/biopax-level2.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xml:base="http://www.biopax.org/examples/biopax-example-reactome-CHK2-ATM.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.biopax.org/release/biopax-level2.owl"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BioPAX pathway converted from "Phosphorylation and activation of CHK2 by ATM" in the Reactome database.</rdfs:comment>
+  </owl:Ontology>
+  <bp:openControlledVocabulary rdf:ID="openControlledVocabulary2">
+    <bp:XREF>
+      <bp:unificationXref rdf:ID="unificationXref7">
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >AA0361</bp:ID>
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RESID</bp:DB>
+      </bp:unificationXref>
+    </bp:XREF>
+    <bp:TERM rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O-phospho-L-serine</bp:TERM>
+  </bp:openControlledVocabulary>
+  <bp:smallMolecule rdf:ID="smallMolecule2">
+    <bp:SHORT-NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ATP</bp:SHORT-NAME>
+    <bp:DATA-SOURCE>
+      <bp:dataSource rdf:ID="dataSource1">
+        <bp:XREF>
+          <bp:publicationXref rdf:ID="publicationXref4">
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >pubmed</bp:DB>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >15338623</bp:ID>
+          </bp:publicationXref>
+        </bp:XREF>
+        <bp:XREF>
+          <bp:publicationXref rdf:ID="publicationXref5">
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >pubmed</bp:DB>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >15338623</bp:ID>
+          </bp:publicationXref>
+        </bp:XREF>
+        <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Reactome (http://reactome.org)</bp:NAME>
+      </bp:dataSource>
+    </bp:DATA-SOURCE>
+    <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ATP [ChEBI:2359]</bp:SYNONYMS>
+    <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Adenosine 5'-triphosphate</bp:SYNONYMS>
+    <bp:XREF>
+      <bp:unificationXref rdf:ID="unificationXref2">
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ChEBI</bp:DB>
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2359</bp:ID>
+      </bp:unificationXref>
+    </bp:XREF>
+    <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ATP</bp:SYNONYMS>
+    <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ATP [ChEBI:2359]</bp:NAME>
+  </bp:smallMolecule>
+  <bp:sequenceParticipant rdf:ID="sequenceParticipant2">
+    <bp:CELLULAR-LOCATION>
+      <bp:openControlledVocabulary rdf:ID="openControlledVocabulary1">
+        <bp:XREF>
+          <bp:unificationXref rdf:ID="unificationXref9">
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >GO:0005654</bp:ID>
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >GO</bp:DB>
+          </bp:unificationXref>
+        </bp:XREF>
+        <bp:TERM rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >nucleoplasm</bp:TERM>
+      </bp:openControlledVocabulary>
+    </bp:CELLULAR-LOCATION>
+    <bp:STOICHIOMETRIC-COEFFICIENT rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >1.0</bp:STOICHIOMETRIC-COEFFICIENT>
+    <bp:PHYSICAL-ENTITY>
+      <bp:protein rdf:ID="protein2">
+        <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FUNCTION: Involved in signal transduction, cell cycle control and DNA repair. May function as a tumor suppressor. Necessary for activation of ABL1 and SAPK. Phosphorylates p53, NFKBIA, BRCA1, CTIP, NIBRIN (NBS1), TERF1, and RAD9. May play a role in vesicle and/or protein transport. Inhibited by wortmaninn. Could play a role in T-cell development, gonad and neurological function. CATALYTIC ACTIVITY: ATP + a protein = ADP + a phosphoprotein. SUBUNIT: Exists in monomeric and tetrameric state. Binds DNA ends, P53, ABL1, BRCA1, NIBRIN (NBS1) and TERF1. Part of the BRCA1- associated genome surveillance complex (BASC), which contains BRCA1, MSH2, MSH6, MLH1, ATM, BLM, PMS2 and the RAD50-MRE11-NBS1 protein complex. This association could be a dynamic process changing throughout the cell cycle and within subnuclear domains. SUBCELLULAR LOCATION: Primarily nuclear. Found also in endocytic vesicles in association with beta-adaptin. TISSUE SPECIFICITY: Found in pancreas, kidney, skeletal muscle, liver, lung, placenta, brain, heart, spleen, thymus, testis, ovary, small intestine, colon and leukocytes. INDUCTION: By ionizing radiation. PTM: Phosphorylated by ARK5. DISEASE: Defects in ATM are the cause of ataxia talangiectasia (AT) [MIM:208900]; also known as Louis-Bar syndrome, which includes four complementation groups: A, C, D and E. This rare recessive disorder is characterized by progressive cerebellar ataxia, dilation of the blood vessels in the conjunctiva and eyeballs, immunodeficiency, growth retardation and sexual immaturity. AT patients have a strong predisposition to cancer; about 30% of patients develop tumors, particularly lymphomas and leukemias. Cells from affected individuals are highly sensitive to damage by ionizing radiation and resistant to inhibition of DNA synthesis following irradiation. DISEASE: Defects in ATM contribute to T-cell acute lymphoblastic leukemia (TALL) and T-prolymphocytic leukemia (TPLL). TPLL is characterized by a high white blood cell count, with a predominance of prolymphocytes, marked splenomegaly, lymphadenopathy, skin lesions and serous effusion. The clinical course is highly aggressive, with poor response to chemoterapy and short survival time. TPLL occurs both in adults as a sporadic disease and in younger AT patients. DISEASE: Defects in ATM contribute to B-cell non-Hodgkin's lymphomas (BNHL), including mantle cell lymphoma (MCL). DISEASE: Defects in ATM contribute to B-cell chronic lymphocytic leukemia (BCLL). BCLL is the commonest form of leukemia in the elderly. It is characterized by the accumulation of mature CD5+ B lymphocytes, lymphadenopathy, immunodeficiency and bone marrow failure. SIMILARITY: Belongs to the PI3/PI4-kinase family. DATABASE: NAME=Ataxia talangiectasia mutation db; WWW="http://www.vmresearch.org/atm.htm". DATABASE: NAME=Atlas Genet. Cytogenet. Oncol. Haematol.; WWW="http://www.infobiogen.fr/services/chromcancer/Genes/ATM123.html".</bp:COMMENT>
+        <bp:XREF>
+          <bp:unificationXref rdf:ID="unificationXref5">
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >uniprot</bp:DB>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Q13315</bp:ID>
+          </bp:unificationXref>
+        </bp:XREF>
+        <bp:ORGANISM>
+          <bp:bioSource rdf:ID="bioSource1">
+            <bp:TAXON-XREF>
+              <bp:unificationXref rdf:ID="unificationXref6">
+                <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >taxon</bp:DB>
+                <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >9606</bp:ID>
+              </bp:unificationXref>
+            </bp:TAXON-XREF>
+            <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Homo sapiens</bp:NAME>
+          </bp:bioSource>
+        </bp:ORGANISM>
+        <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ataxia telangiectasia mutated) (A-T, mutated)</bp:SYNONYMS>
+        <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >UniProt:Q13315 Serine-protein kinase ATM (EC 2.7.1.37) (Ataxia telangiectasia mutated) (A-T, mutated)</bp:SYNONYMS>
+        <bp:DATA-SOURCE rdf:resource="#dataSource1"/>
+        <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ATM</bp:SYNONYMS>
+        <bp:SHORT-NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ATM</bp:SHORT-NAME>
+        <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >UniProt:Q13315 Serine-protein kinase ATM (EC 2.7.1.37) (Ataxia telangiectasia mutated) (A-T, mutated)</bp:NAME>
+      </bp:protein>
+    </bp:PHYSICAL-ENTITY>
+  </bp:sequenceParticipant>
+  <bp:unificationXref rdf:ID="unificationXref3">
+    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >reactome</bp:DB>
+    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >69891</bp:ID>
+    <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.reactome.org</bp:COMMENT>
+  </bp:unificationXref>
+  <bp:catalysis rdf:ID="catalysis1">
+    <bp:CONTROLLED>
+      <bp:biochemicalReaction rdf:ID="biochemicalReaction1">
+        <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Phosphorylation and activation of CHK2 by ATM</bp:SYNONYMS>
+        <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Phosphorylation and activation of CHK2 by ATM</bp:NAME>
+        <bp:SPONTANEOUS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >NOT-SPONTANEOUS</bp:SPONTANEOUS>
+        <bp:XREF>
+          <bp:publicationXref rdf:ID="publicationXref1">
+            <bp:YEAR rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2003</bp:YEAR>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Marot, D</bp:AUTHORS>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Perricaudet, M</bp:AUTHORS>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Ashworth, A</bp:AUTHORS>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >12773400</bp:ID>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Foray, N</bp:AUTHORS>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Gabriel, A</bp:AUTHORS>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Carr, AM</bp:AUTHORS>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Jeggo, P</bp:AUTHORS>
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >pubmed</bp:DB>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Randrianarison, V</bp:AUTHORS>
+            <bp:SOURCE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >EMBO J 22:2860-71</bp:SOURCE>
+            <bp:TITLE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >A subset of ATM- and ATR-dependent phosphorylation events requires the BRCA1 protein.</bp:TITLE>
+          </bp:publicationXref>
+        </bp:XREF>
+        <bp:RIGHT>
+          <bp:physicalEntityParticipant rdf:ID="physicalEntityParticipant1">
+            <bp:CELLULAR-LOCATION rdf:resource="#openControlledVocabulary1"/>
+            <bp:STOICHIOMETRIC-COEFFICIENT rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >1.0</bp:STOICHIOMETRIC-COEFFICIENT>
+            <bp:PHYSICAL-ENTITY>
+              <bp:smallMolecule rdf:ID="smallMolecule1">
+                <bp:XREF>
+                  <bp:unificationXref rdf:ID="unificationXref1">
+                    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >ChEBI</bp:DB>
+                    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >2342</bp:ID>
+                  </bp:unificationXref>
+                </bp:XREF>
+                <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >ADP [ChEBI:2342]</bp:SYNONYMS>
+                <bp:SHORT-NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >ADP</bp:SHORT-NAME>
+                <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Adenosine 5'-diphosphate</bp:SYNONYMS>
+                <bp:DATA-SOURCE rdf:resource="#dataSource1"/>
+                <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >ADP [ChEBI:2342]</bp:NAME>
+                <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >ADP</bp:SYNONYMS>
+              </bp:smallMolecule>
+            </bp:PHYSICAL-ENTITY>
+          </bp:physicalEntityParticipant>
+        </bp:RIGHT>
+        <bp:LEFT>
+          <bp:sequenceParticipant rdf:ID="sequenceParticipant1">
+            <bp:CELLULAR-LOCATION rdf:resource="#openControlledVocabulary1"/>
+            <bp:STOICHIOMETRIC-COEFFICIENT rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >1.0</bp:STOICHIOMETRIC-COEFFICIENT>
+            <bp:PHYSICAL-ENTITY>
+              <bp:protein rdf:ID="protein1">
+                <bp:SHORT-NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >CHK2</bp:SHORT-NAME>
+                <bp:XREF>
+                  <bp:unificationXref rdf:ID="unificationXref4">
+                    <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >uniprot</bp:DB>
+                    <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >O96017</bp:ID>
+                  </bp:unificationXref>
+                </bp:XREF>
+                <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >CHK2</bp:SYNONYMS>
+                <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >CHEK2</bp:SYNONYMS>
+                <bp:DATA-SOURCE rdf:resource="#dataSource1"/>
+                <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >FUNCTION: Controls cell cycle checkpoint. May participate in transduction of the DNA damage and replicational stress signals. Inhibits CDC25C phosphatase by phosphorylating it on Ser-216, preventing the entry into mitosis. May have a role in meiosis as well. CATALYTIC ACTIVITY: ATP + a protein = ADP + a phosphoprotein. ENZYME REGULATION: Kinase activity is up-regulated by autophosphorylation. Rapidly phosphorylated in response to DNA damage and to replication block. SUBCELLULAR LOCATION: Nuclear. TISSUE SPECIFICITY: High expression is found in testis, spleen, colon and peripheral blood leukocytes. Low expression is found in other tissues. DISEASE: Defects in CHEK2 are associated with Li-Fraumeni syndrome (LFS) [MIM:151623]; a highly penetrant familial cancer phenotype usually associated with inherited mutations in p53/TP53. DISEASE: Defects in CHEK2 are found in some patients with prostate cancer (CaP) [MIM:176807]. DISEASE: Defects in CHEK2 are found in some patients with osteosarcoma (OSRC) [MIM:259500]. SIMILARITY: Belongs to the Ser/Thr protein kinase family. CDS1 subfamily. SIMILARITY: Contains 1 FHA domain.</bp:COMMENT>
+                <bp:ORGANISM rdf:resource="#bioSource1"/>
+                <bp:SYNONYMS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >UniProt:O96017 Serine/threonine-protein kinase Chk2 (EC 2.7.1.37) (Cds1)</bp:SYNONYMS>
+                <bp:NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >UniProt:O96017 Serine/threonine-protein kinase Chk2 (EC 2.7.1.37) (Cds1)</bp:NAME>
+              </bp:protein>
+            </bp:PHYSICAL-ENTITY>
+          </bp:sequenceParticipant>
+        </bp:LEFT>
+        <bp:XREF rdf:resource="#unificationXref3"/>
+        <bp:XREF>
+          <bp:publicationXref rdf:ID="publicationXref2">
+            <bp:TITLE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >A human homologue of the checkpoint kinase Cds1 directly inhibits Cdc25 phosphatase.</bp:TITLE>
+            <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >9889122</bp:ID>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >de Weyer, IV</bp:AUTHORS>
+            <bp:SOURCE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Curr Biol 9:1-10</bp:SOURCE>
+            <bp:YEAR rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1999</bp:YEAR>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Laus, MC</bp:AUTHORS>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >McGowan, CH</bp:AUTHORS>
+            <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >pubmed</bp:DB>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Blasina, A</bp:AUTHORS>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Parker, AE</bp:AUTHORS>
+            <bp:AUTHORS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Luyten, WH</bp:AUTHORS>
+          </bp:publicationXref>
+        </bp:XREF>
+        <bp:SHORT-NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Phosphorylation and activation of CHK2 by ATM</bp:SHORT-NAME>
+        <bp:RIGHT>
+          <bp:sequenceParticipant rdf:ID="sequenceParticipant3">
+            <bp:SEQUENCE-FEATURE-LIST>
+              <bp:sequenceFeature rdf:ID="sequenceFeature1">
+                <bp:FEATURE-TYPE rdf:resource="#openControlledVocabulary2"/>
+                <bp:FEATURE-LOCATION>
+                  <bp:sequenceSite rdf:ID="sequenceSite1">
+                    <bp:POSITION-STATUS rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >EQUAL</bp:POSITION-STATUS>
+                    <bp:COMMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    ></bp:COMMENT>
+                    <bp:SEQUENCE-POSITION rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >1981</bp:SEQUENCE-POSITION>
+                  </bp:sequenceSite>
+                </bp:FEATURE-LOCATION>
+              </bp:sequenceFeature>
+            </bp:SEQUENCE-FEATURE-LIST>
+            <bp:PHYSICAL-ENTITY rdf:resource="#protein1"/>
+            <bp:CELLULAR-LOCATION rdf:resource="#openControlledVocabulary1"/>
+            <bp:STOICHIOMETRIC-COEFFICIENT rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >1.0</bp:STOICHIOMETRIC-COEFFICIENT>
+          </bp:sequenceParticipant>
+        </bp:RIGHT>
+        <bp:DATA-SOURCE rdf:resource="#dataSource1"/>
+        <bp:LEFT>
+          <bp:physicalEntityParticipant rdf:ID="physicalEntityParticipant2">
+            <bp:PHYSICAL-ENTITY rdf:resource="#smallMolecule2"/>
+            <bp:STOICHIOMETRIC-COEFFICIENT rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >1.0</bp:STOICHIOMETRIC-COEFFICIENT>
+            <bp:CELLULAR-LOCATION rdf:resource="#openControlledVocabulary1"/>
+          </bp:physicalEntityParticipant>
+        </bp:LEFT>
+      </bp:biochemicalReaction>
+    </bp:CONTROLLED>
+    <bp:DATA-SOURCE rdf:resource="#dataSource1"/>
+    <bp:DIRECTION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PHYSIOL-LEFT-TO-RIGHT</bp:DIRECTION>
+    <bp:AVAILABILITY rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    > Reactome is a free on-line resource, and Reactome software is open-source. However, please take note of our disclaimer. (http://reactome.org/disclaimer.html)</bp:AVAILABILITY>
+    <bp:XREF>
+      <bp:relationshipXref rdf:ID="relationshipXref1">
+        <bp:DB rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >GO</bp:DB>
+        <bp:ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >GO:0016301</bp:ID>
+        <bp:RELATIONSHIP-TYPE rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >GO molecular function</bp:RELATIONSHIP-TYPE>
+      </bp:relationshipXref>
+    </bp:XREF>
+    <bp:CONTROLLER rdf:resource="#sequenceParticipant2"/>
+  </bp:catalysis>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 1.3, Build 225.4)  http://protege.stanford.edu -->

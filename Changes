@@ -1,0 +1,44 @@
+Revision history for eXpanda
+
+1.1.0 
+      - [enhancement] Support PSI-MI version 2, level 5.
+      - [enhancement] Implement Heat-Color. see Document.
+      - [enhancement] Add inhibit arrow.
+      - [enhancement] Add multi-components view in node.
+      - [enhancement] Support for multiple layout engine. now available 'Graph::Layout::Aethetic'(default), 'Phospho'.
+      - [enhancement] Load time is shorter than previous version.
+      - [bugfix] GML file output.
+      - [platform] Windows Active Perl package (PPM) is available.
+      - [enhancement:todo] Improve 'Apply' method and 'Return' method. you can use eXpath to detect object in network.
+ 
+-------------------------------
+
+1.0.6 Wed, 20 Feb 08 01:07:16 UTC 2007
+      - Fixed a bug which is in test script.
+
+-------------------------------
+
+1.0.5 Mon Nov 12 12:07:07 UTC 2007
+      - Improved compatibility with Cytoscape.
+      - Minor changes in SIF file parser.
+
+-------------------------------
+1.0.4 Tue Mar 13 02:53:54 2007
+       - Changed directory structure. All *.pm files other than 'eXpanda.pm', install in 'eXpanda' directory.  
+       - fixed a bug which is in parse module. 
+
+-------------------------------
+1.0.3 Tue Jan 19 21:56:55 2007
+       [BugFix] fixed exsamples. 
+
+-------------------------------
+1.0.2 Tue Jan 16 18:52:54 2007
+       [BugFix] Makefile.PL Support PREFIX, non-root user can install dependencies.
+
+-------------------------------
+1.0.1 Sat Jan 06 13:27:47 2007
+       [BugFix] Fix function GetKEGG, init in IdConvert.pm.
+
+-------------------------------
+1.0.0  Tue Aug 29 16:36:48 2006
+       Initial release.
