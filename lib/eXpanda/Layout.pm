@@ -5,14 +5,14 @@ use strict;
 use warnings;
 use autouse 'eXpanda::Layout::Default'  => 'CalCoord_default';
 use autouse 'eXpanda::Layout::Phospho'  => 'CalCoord_phospho';
-use autouse 'eXpanda::Layout::GraphViz' => 'CalCoord_graphviz';
+use autouse 'eXpanda::Layout::GraphViz' => 'CalCoord_dot';
 
 sub _dispacher {
   print "[debug] Layout::_dispatcher.\n" if $eXpanda::DEBUG;
   return {
 	  'Graph::Layout::Aesthetic' => \&CalCoord_default,
 	  'Phospho'  => \&CalCoord_phospho,
-	  'GraphViz' => \&CalCoord_graphviz,
+	  'GraphViz' => \&CalCoord_dot,
 	  };
 }
 

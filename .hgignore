@@ -6,3 +6,4 @@ syntax: regexp
 ^\.\#,*
 .*\.swp
 .*\.png
+^hgpush.sh$

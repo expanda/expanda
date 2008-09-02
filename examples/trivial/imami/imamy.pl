@@ -68,6 +68,6 @@ for my $minlabel ('0min','5min', '10min', '20min') {
 		}
 	}
 	$egfr->out("egfr_maptest_${minlabel}.svg",
-		-engine => 'Phospho',
+		-engine => 'GraphViz',
 	);
 }

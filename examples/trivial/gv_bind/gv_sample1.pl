@@ -16,18 +16,33 @@ for (3..100) {
 	gv::edge( $graph, "node".int(rand(($_))), "node$_");
 }
 
-
+gv::setv($node1,'color','red');
 gv::layout($graph, "dot");
 gv::render($graph);
 
 my $pos = gv::findattr($node1, 'pos');
 print "Value: ".gv::getv($node1, $pos)."\n";
+
+my $pos2 = gv::findattr($node2, 'pos');
+print "Value: ".gv::getv($node2, $pos2)."\n";
+
+my $pos_edge =  gv::findattr($edge, 'pos');
+print "Value: ".gv::getv($edge, $pos_edge)."\n";
+
+my $pos = gv::findattr($graph, 'bb');
+#print "Value: ".gv::getv($graph, $pos)."\n";
+gv::setv($graph, "bb", '0,0,5000,5000');
+
+gv::layout($graph, "neato");
+gv::render($graph, "png", 'hoge.png');
+
 exit;
 
 my $n = undef;
 
 while ( 1 ) {
   $n = ( defined $n ) ? gv::nextnode($graph, $n) : gv::firstnode($graph);
+  
 
   my $a = undef;
   while ( 1 ) {
@@ -38,5 +53,32 @@ while ( 1 ) {
   }
   last unless gv::ok($n);
 }
+
+
+my $e = undef;
+
+while ( 1 ) {
+  $e = ( defined $e ) ? gv::nextedge($graph, $e) : gv::firstedge($graph);
+
+  my $a = undef;
+  while ( 1 ) {
+    $a = ( defined $a ) ? gv::nextattr($e, $a) : gv::firstattr($e);
+    print  "AttrName: ".gv::nameof($a)."\t" if gv::nameof($a);
+    print "Value: ".gv::getv($e, $a)."\n";
+    last unless gv::ok($a);
+  }
+  last unless gv::ok($e);
+}
+
+my $ga = undef;
+
+while ( 1 ) {
+  $ga = ( defined $ga ) ? gv::nextattr($graph, $ga) : gv::firstattr($graph);
+  print  "AttrName: ".gv::nameof($ga)."\t" if gv::nameof($ga);
+  print "Value: ".gv::getv($graph, $ga)."\n";
+  last unless gv::ok($ga);
+}
+
+
 
 gv::render($graph, "png", "sample.png");
