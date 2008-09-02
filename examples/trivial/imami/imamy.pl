@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use eXpanda;
+use eXpanda qw{debug};
 use eXpanda::Graphics::Color;
 use Carp qw[confess];
 use Data::Dumper;

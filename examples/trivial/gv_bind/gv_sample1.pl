@@ -14,11 +14,16 @@ for (3..100) {
 	my $tmpn = gv::node( $graph, "node$_" );
 	gv::setv($tmpn,'label', 'node'.$_);
 	gv::edge( $graph, "node".int(rand(($_))), "node$_");
+	#gv::edge( $graph, "node".($_-1), "node$_");;
 }
 
-gv::setv($node1,'color','red');
-gv::layout($graph, "dot");
-gv::render($graph);
+gv::setv($node2,'color','red');
+gv::setv($node2,'pos','2000,501');
+#gv::setv($node2,'pin','true');
+gv::setv($node2,'width',"3");
+
+#gv::layout($graph, "dot");
+#gv::render($graph);
 
 my $pos = gv::findattr($node1, 'pos');
 print "Value: ".gv::getv($node1, $pos)."\n";
@@ -31,12 +36,26 @@ print "Value: ".gv::getv($edge, $pos_edge)."\n";
 
 my $pos = gv::findattr($graph, 'bb');
 #print "Value: ".gv::getv($graph, $pos)."\n";
-gv::setv($graph, "bb", '0,0,5000,5000');
+gv::setv($graph, "bb", '0 0 5000 5000');
+gv::setv($graph, "center", 'true');
+#gv::setv($graph, "root", "node2");
+print gv::getv($graph, "bb")."\n";
 
-gv::layout($graph, "neato");
-gv::render($graph, "png", 'hoge.png');
+gv::layout($graph, "dot");
+gv::render($graph, "png", 'dottest.png');
 
+print "position of node 2 ".gv::getv($node2, 'pos')."\n";
+
+my $ga = undef;
+
+while ( 1 ) {
+  $ga = ( defined $ga ) ? gv::nextattr($graph, $ga) : gv::firstattr($graph);
+  print  "AttrName: ".gv::nameof($ga)."\t" if gv::nameof($ga);
+  print "Value: ".gv::getv($graph, $ga)."\n";
+  last unless gv::ok($ga);
+}
 exit;
+__END__
 
 my $n = undef;
 

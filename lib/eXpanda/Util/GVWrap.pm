@@ -72,7 +72,7 @@ sub find_node {
 	my $name = shift
 	  || confess __PACKAGE__." : find_node : missing argument 'node'.";
 
-	return gv::findnode($name);
+	return gv::findnode($this->_gv_graph, $name);
 }
 
 # Usage: 
@@ -124,6 +124,7 @@ sub add_edge {
 sub bounding_box {
 	my $this = shift;
 	my ( $w, $h ) = @_;
+
 	if (!$w || !$h ) {
 		if ( gv::getv($this->_gv_graph, 'bb') =~ m/^\d+?,\d+?,(\d+?),(\d+?)$/ ) {
 			return [ $this->pt_px($1), $this->pt_px($2) ];
@@ -132,8 +133,12 @@ sub bounding_box {
 			return 0;
 		}
 	} else {
-		( $w , $h ) = ( $this->px_pt($w) , $this->px_pt($h) );
-		gv::setv($this->_gv_graph, 'bb', "0,0,$w,$h");
+		my ( $pw , $ph ) = ( $this->px_pt($w) , $this->px_pt($h) );
+		my ( $iw , $ih ) = ( $this->px_inch($w) , $this->px_inch($h) );
+		print "[debug] bounding box set to ${pw}:${ph}(point) ${w}:${h}(pixcel)\n";	
+		gv::setv( $this->_gv_graph, 'bb', "0,0,$pw,$ph" );
+		gv::setv( $this->_gv_graph, 'size', "0,0,$pw,$ph" );
+
 	}
 }
 
@@ -151,10 +156,10 @@ sub return_axis {
 
 	$this->layout unless ( $this->rendered );
 
-
 	$this->each_elt('node', sub {
 			my $n = shift;
 			if ( gv::getv($n, 'pos') =~ m/(\d+),(\d+)/) {
+				print '.';
 				$result->{gv::nameof($n)}
 				= $this->translate( $this->pt_px($1),
 					$this->pt_px($2) );
@@ -166,6 +171,15 @@ sub return_axis {
 	return $result;
 }
 
+sub png {
+	my $this = shift;
+	my $file = shift || 'graph.png';
+
+	$this->layout unless ( $this->rendered );
+
+  	gv::render($this->_gv_graph,'png', $file);
+}
+
 # default dpi is 96
 # 1 inch = 72 pt
 # 1point = 1/72 * 96
@@ -173,13 +187,18 @@ sub return_axis {
 sub pt_px {
 	my $this = shift;
 	my $pt = shift;
-	return ($pt*1/72*96);
+	return ( $pt * 1/72 * 96 );
 }
 
 sub px_pt {
 	my $this = shift;
 	my $px = shift;
-	return sprintf("%.2f", 1/($px * 1/72 * 96));
+	if ( ( $px * 1/96 * 72) % 1 != 0 ) {
+		return sprintf("%.2f", ($px * 1/96 * 72));
+	}
+	else {
+		return ($px * 1/96 * 72);
+	}
 }
 
 sub inch_px {
