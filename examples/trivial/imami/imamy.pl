@@ -30,7 +30,7 @@ $egfr->Apply(
 );
 
 $egfr->Apply(-object => 'node:graphics:w',
-	-value => '15' );
+	-value => '20' );
 
 $egfr->Apply(-object => 'node:graphics:type',
 	-value => 'oval');
@@ -68,6 +68,8 @@ for my $minlabel ('0min','5min', '10min', '20min') {
 		}
 	}
 	$egfr->out("egfr_maptest_${minlabel}.svg",
+		-width => 2000,
+		-no_direction => 0,
 		-engine => 'GraphViz',
 	);
 }

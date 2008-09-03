@@ -89,10 +89,10 @@ sub CalCoord_dot {
 	$gvw->layout('dot');
 	my $coord_str = $gvw->return_axis; 
 	say "coordinate calurate end";
-
+	my $bb = $gvw->bounding_box;
 	while ( my ( $nname , $coord ) = each %{ $coord_str } ) {
-		$str->{node}->{$nname}->{graphics}->{x} = $coord->[0];
-		$str->{node}->{$nname}->{graphics}->{y} = $coord->[1];
+		$str->{node}->{$nname}->{graphics}->{x} = $coord->[0] * $w / $bb->[0];
+		$str->{node}->{$nname}->{graphics}->{y} = $coord->[1] * $h / $bb->[1];
 	}
 	
 	$str->{graphed} = 1;

@@ -89,10 +89,13 @@ sub add_node {
 
 	while ( my ($k, $v) = each %{$variables} ) {
 		if ( $k eq 'width' ) {
-			gv::setv($tmp_n, $k, $this->px_inch($v));
+		 print "set node width to ".$this->px_inch($v)."\n";
+		 my $char_val = $this->px_inch($v);
+		 gv::setv($tmp_n, $k, "$char_val" );
+		 gv::setv($tmp_n, 'height', "$char_val" );
 		}
 		else {
-			gv::setv($tmp_n, $k, $v);
+		  gv::setv($tmp_n, $k, "$v");
 		}
 	}
 
@@ -127,18 +130,19 @@ sub bounding_box {
 
 	if (!$w || !$h ) {
 		if ( gv::getv($this->_gv_graph, 'bb') =~ m/^\d+?,\d+?,(\d+?),(\d+?)$/ ) {
-			return [ $this->pt_px($1), $this->pt_px($2) ];
+			return [ $1, $2 ];
 		} else {
-			carp "bounding_box : does not match.";
+			carp "bounding_box : does not match.". gv::getv($this->_gv_graph, 'bb') ;
 			return 0;
 		}
 	} else {
-		my ( $pw , $ph ) = ( $this->px_pt($w) , $this->px_pt($h) );
+		#my ( $pw , $ph ) = ( $this->px_pt($w) , $this->px_pt($h) );
 		my ( $iw , $ih ) = ( $this->px_inch($w) , $this->px_inch($h) );
-		print "[debug] bounding box set to ${pw}:${ph}(point) ${w}:${h}(pixcel)\n";	
-		gv::setv( $this->_gv_graph, 'bb', "0,0,$pw,$ph" );
-		gv::setv( $this->_gv_graph, 'size', "0,0,$pw,$ph" );
-
+		$w = int($w * 5/3);
+		$h = int( $h * 5/3);
+		print "[debug] bounding box set to ${w}:${h}\n";	
+		gv::setv( $this->_gv_graph, 'bb', "0,0,$iw,$ih" );
+		#gv::setv( $this->_gv_graph, 'size', "0,0,$pw,$ph" );
 	}
 }
 
@@ -161,8 +165,7 @@ sub return_axis {
 			if ( gv::getv($n, 'pos') =~ m/(\d+),(\d+)/) {
 				print '.';
 				$result->{gv::nameof($n)}
-				= $this->translate( $this->pt_px($1),
-					$this->pt_px($2) );
+				= $this->translate( $1, $2 );
 			} else {
 				carp "[warn] : return_axis : node has no position.";
 			}
@@ -210,7 +213,13 @@ sub inch_px {
 sub px_inch {
 	my $this = shift;
 	my $px = shift;
-	return sprintf("%.2f",$px/96);
+
+	if ( int($px/96) < 1 ) {
+		return sprintf("%.2f",$px/96);	 	
+	 }
+	 else {
+	 	return int($px/96)
+	 }
 }
 
 #
