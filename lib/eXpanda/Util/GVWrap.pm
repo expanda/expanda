@@ -89,7 +89,7 @@ sub add_node {
 
 	while ( my ($k, $v) = each %{$variables} ) {
 		if ( $k eq 'width' ) {
-		 print "set node width to ".$this->px_inch($v)."\n";
+			#print "set node width to ".$this->px_inch($v)."\n";
 		 my $char_val = $this->px_inch($v);
 		 gv::setv($tmp_n, $k, "$char_val" );
 		 gv::setv($tmp_n, 'height', "$char_val" );

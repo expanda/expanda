@@ -52,12 +52,21 @@ for my $minlabel ('0min','5min', '10min', '20min') {
 			push @ordered_ratio, $cpstr->{information}->{$minlabel};
 		}
 	}
+
 	@ordered_ratio = sort { $a cmp $b } @ordered_ratio;
 	my $range = $ordered_ratio[-1] - $ordered_ratio[0];
 	my $min =$ordered_ratio[0]; 
+
 	while ( my ($id, $nstr) = each %{$egfr->{node}} ) {
 		my $comp = $nstr->{component};
-		next unless defined $comp;
+
+		next unless $comp;
+
+#		if ($nstr->{label} eq 'REPS1') {
+#			print Dumper $nstr;
+#	}
+
+		$nstr->{graphics}->{fill} = "#68be8d";
 		while (my ($cpid, $cpstr) = each %{$comp}) {
 			if ($range != 0)	 {
 				$cpstr->{graphics}->{fill} = $color[int( 100 * ( ($cpstr->{information}->{$minlabel} - $min) / $range ))] ;
@@ -67,6 +76,7 @@ for my $minlabel ('0min','5min', '10min', '20min') {
 			}
 		}
 	}
+
 	$egfr->out("egfr_maptest_${minlabel}.svg",
 		-width => 2000,
 		-no_direction => 0,

@@ -752,11 +752,12 @@ sub DrawComponent {
 	# Main circle positions.
 	my $X = $c->{x};
 	my $Y = $c->{y};
-	my $R = $c->{w} / 2;
+	my $R = $c->{w};
 
 	# component info
 	my $pi = 3.141592653589793238462643383279;
 	my $n  = scalar( keys %{$cmps} );
+	$n = 2 if ($n == 1);
 	my $theta = (180/$n) * ($pi/180);
 	my $r = sin($theta) * $R / ( sin($theta) + 1 );
 	my $d = $R - $r;
@@ -775,6 +776,7 @@ sub DrawComponent {
 			'stroke-opacity'    => 1,
 			'stroke-dash'    => 'none',
 			'font-color'    => '#000000',
+			'width-scale' => 1,
 			%{$str->{graphics}}};
 
 		for (qw{stroke-width stroke opacity stroke-opacity font-color  }) {
@@ -782,9 +784,9 @@ sub DrawComponent {
 		}
 
 		my $deg = $rotation_degree * $count - $rotate_sub_degree;
-		$cc->{y} = $c->{y} + $d * sin($deg * ($pi/180));
-		$cc->{x} = $c->{x} + $d * cos($deg * ($pi/180));
-		$cc->{w} = $r * 2;
+		$cc->{y} = $Y + $d * sin($deg * ($pi/180));
+		$cc->{x} = $X + $d * cos($deg * ($pi/180));
+		$cc->{w} = $r  * $cc->{'width-scale'};
 		$cc->{'stroke-width'} = $c->{'stroke-width'} / $n;
 		$cc->{'stroke'} = $c->{'stroke'};
 		$cc->{'opacity'} = $c->{opacity};
