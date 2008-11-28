@@ -76,7 +76,7 @@ sub Gml2Str{
 				$gstr->{$type}->{$source}->{$target}->{source} = $source;
 				$gstr->{$type}->{$source}->{$target}->{target} = $target;
 			}
-		} elsif (/^s+?([^\t]*)\s+?(.*)/ && $gra == 1 && $type) {
+		} elsif (/^\s+(\S*)\s+([\w\-\_.]*?)$/ && $gra == 1 && $type) {
 			$key = $1;
 			$val = $2;
 			$val =~ s/\"//g;
@@ -103,7 +103,7 @@ sub Gml2Str{
 	delete $gstr->{node}->{'0'};
 	delete $gstr->{edge}->{'0'};
 
-	print Dumper $gstr;
+	# print Dumper $gstr;
 
 	$gstr->{graphed} = 1;
 	my @edgekey = keys %{$gstr->{edge}};

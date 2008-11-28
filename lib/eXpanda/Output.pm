@@ -16,7 +16,7 @@ sub _dispatcher {
   return {
 	  'svg' => sub {
 	    my ( $str, $attribute ) = @_;
-	    Str2Svg( CalCoord( ApplyGraphics($str, $attribute), $attribute), $attribute);
+	    Str2Svg( CalCoord( ApplyGraphics($str, $attribute), $attribute, $str), $attribute);
 	  },
 	  'gml' => sub {
 	    my ( $str, $attribute ) = @_;

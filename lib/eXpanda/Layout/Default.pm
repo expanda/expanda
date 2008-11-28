@@ -18,9 +18,9 @@ export function is CalCoord only.
 
 =over 4
 
-=item Calcoord
+=item Calcoord_default
 
-Calcoord($str, %attribute);
+Calcoord_default($str, %attribute);
 
 =head2 Options
 
@@ -78,13 +78,16 @@ sub CalCoord_default {
   $aglo->add_force("MinEdgeIntersect2", $attribute{kmei2});
 
 =c
+
     #Following drawing parameters are tuned for tap/ivv files
     #Have to make branch for sif network
     $aglo->add_force("min_edge_length", 0.000002 * ($#nodes ** 1.7));
     $aglo->add_force("min_edge_intersect2");
     $aglo->add_force("node_repulsion");
     $aglo->add_force("node_edge_repulsion");
+
 =cut
+
 
   $aglo->gloss;
   $aglo->normalize;
