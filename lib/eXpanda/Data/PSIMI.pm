@@ -284,7 +284,7 @@ sub mif25interaction {
             graphics => {},
             '_entry_id' => $entry_id,
             '_id' => $interactionElement->{_id},
-            'informaion' => $interactionElement,
+            'information' => $interactionElement,
         };
     }
     elsif ( scalar(@participant_id) > 2 ) {
@@ -298,7 +298,7 @@ sub mif25interaction {
                         graphics => {},
                         '_entry_id' => $entry_id,
                         '_id' => $interactionElement->{_id},
-                        'informaion' => dclone($interactionElement),
+                        'information' => dclone($interactionElement),
                     };
                 }
             }
