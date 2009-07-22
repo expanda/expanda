@@ -49,9 +49,9 @@ sub CalCoord_default {
 
   for my $node_name (@nodes) {
     unless (defined $str->{node}->{$node_name}->{disable} 
-		 && $str->{node}->{$node_name}->{disable} == 1) {
-		 $str->{node}->{$node_name}->{num} = $tmp_i;
-		 $num2node[$tmp_i] = $node_name;
+      && $str->{node}->{$node_name}->{disable} == 1) {
+      $str->{node}->{$node_name}->{num} = $tmp_i;
+      $num2node[$tmp_i] = $node_name;
       $tmp_i ++;
     }
   }
@@ -61,10 +61,10 @@ sub CalCoord_default {
   for my $source (sort keys %{$str->{edge}}) {
     for my $target (sort keys %{$str->{edge}->{$source}}) {
       unless (defined $str->{edge}->{$source}->{$target}->{disable} 
-	      && $str->{edge}->{$source}->{$target}->{disable} == 1) {
-	my $source_num = $str->{node}->{$source}->{num};
-	my $target_num = $str->{node}->{$target}->{num};
-	$topology->add_edge($source_num, $target_num) if($source_num ne $target_num);
+        && $str->{edge}->{$source}->{$target}->{disable} == 1) {
+        my $source_num = $str->{node}->{$source}->{num};
+        my $target_num = $str->{node}->{$target}->{num};
+        $topology->add_edge($source_num, $target_num) if($source_num ne $target_num);
       }
     }
   }
@@ -89,39 +89,39 @@ sub CalCoord_default {
 =cut
 
 
-  $aglo->gloss;
-  $aglo->normalize;
+$aglo->gloss;
+$aglo->normalize;
 
-  my $x_max = 0;
-  my $y_max = 0;
-  $tmp_i = 0;
-  for ($aglo->all_coordinates) {
-    my ($x, $y) = @$_;
-    $str->{node}->{$num2node[$tmp_i]}->{graphics}->{x} = $x * $w;
-    $str->{node}->{$num2node[$tmp_i]}->{graphics}->{y} = $y * $h;
-    $x_max = $x if($x_max < $x);
-    $y_max = $y if($y_max < $y);
-    $tmp_i ++;
+my $x_max = 0;
+my $y_max = 0;
+$tmp_i = 0;
+for ($aglo->all_coordinates) {
+  my ($x, $y) = @$_;
+  $str->{node}->{$num2node[$tmp_i]}->{graphics}->{x} = $x * $w;
+  $str->{node}->{$num2node[$tmp_i]}->{graphics}->{y} = $y * $h;
+  $x_max = $x if($x_max < $x);
+  $y_max = $y if($y_max < $y);
+  $tmp_i ++;
+}
+
+
+if ($x_max > $w) {
+  my $xk =  $w / $x_max;
+  for my $node (keys %{$str->{node}}) {
+    $str->{node}->{$node}->{graphics}->{x} *= $xk;
   }
+}
 
-
-  if ($x_max > $w) {
-    my $xk =  $w / $x_max;
-    for my $node (keys %{$str->{node}}) {
-      $str->{node}->{$node}->{graphics}->{x} *= $xk;
-    }
+if ($y_max > $h) {
+  my $yk =  $h / $y_max;
+  for my $node (keys %{$str->{node}}) {
+    $str->{node}->{$node}->{graphics}->{y} *= $yk;
   }
+}
 
-  if ($y_max > $h) {
-    my $yk =  $h / $y_max;
-    for my $node (keys %{$str->{node}}) {
-      $str->{node}->{$node}->{graphics}->{y} *= $yk;
-    }
-  }
+$str->{graphed} = 1;
 
-  $str->{graphed} = 1;
-
-  return $str;
+return $str;
 }
 
 1;
